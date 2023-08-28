@@ -1,7 +1,7 @@
 import  {useState } from 'react';
 import { Flex, VStack, Text, useColorModeValue, Heading, Box, Button, Input } from '@chakra-ui/react';
 import axios from 'axios';
-import { useHistory } from 'react-router-dom';
+import { redirect } from 'react-router-dom';
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -9,8 +9,6 @@ const Login = () => {
     password: '',
   });
   const [loginError, setLoginError] = useState<string | null>(null);
-
-  const history = useHistory();
 
   const handleInputChange = (name: string, value: string) => {
     setFormData((prevData) => ({
@@ -38,7 +36,7 @@ const Login = () => {
       console.log('Login successful:', response.data);
 
       // Redirect to dashboard after successful login
-      history.push('/dashboard');
+      redirect('/dashboard');
     } catch (error) {
       console.error('Login error:', error);
       setLoginError('Login failed. Please check your credentials.');
