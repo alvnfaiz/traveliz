@@ -4,9 +4,6 @@ import InputField from '@/components/InputField';
 import axios from 'axios';
 import { redirect } from 'react-router-dom';
 
-// ...
-
-
 
 interface RegisterFormData {
   email: string;
